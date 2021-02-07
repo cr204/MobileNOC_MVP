@@ -18,6 +18,7 @@ struct DataService: DataServiceType {
         let jsonString = String(data:contentData, encoding:String.Encoding.utf8)
         let jsonData = jsonString?.data(using: .utf8)
         
+//        logData(jsonData)
         return decodeToModel(JSONData: jsonData)
     }
     
@@ -29,6 +30,14 @@ struct DataService: DataServiceType {
         } catch {
             print(error)
             return nil
+        }
+    }
+    
+    private func logData(_ jsonData: Data?) {
+        if let data = jsonData {
+            let dataAsString = String(data: data, encoding: .utf8)!
+            print("________DATA___________")
+            print(dataAsString)
         }
     }
     

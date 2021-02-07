@@ -26,9 +26,44 @@ struct ServersVCPresenter: ServersVCPresenterType {
     }
     
     private mutating func fetchServerData() {
-        
+        guard let serverModels = getServerModels() else { return }
+        let representables = createRepresentables(from: serverModels)
+        view?.servers = representables
     }
     
+    private func getServerModels() -> [ServerData]? {
+        guard let filePath = Bundle.main.path(forResource: "servers", ofType: "json")
+            else { return nil }
+        
+        return dataService.getJSONData(filePath: filePath)
+    }
+    
+    
+    private func createRepresentables(from serverModels: [ServerData]) -> [ServerRepresentable] {
+        var servers = [ServerRepresentable]()
+        
+        // sorting
+        let sortedById = serverModels.sorted { $0.id < $1.id }
+        
+        sortedById.forEach { item in
+            let newServer = Server(
+                image: "",
+                country: "Brasil",
+                name: item.name,
+                ipAddress: item.ipAddress,
+                ipSubnetMask: item.ipSubnetMask ?? "missing",
+                check: Bool.random(),
+                phone: Bool.random(),
+                delay: Bool.random(),
+                muted: Bool.random(),
+                message: "CPU 100%",
+                status: Server.ServerStatus.init(rawValue: item.status.id) ?? .none)
+            
+            servers.append(ServerRepresentable(id: item.id, server: newServer))
+        }
+        
+        return servers
+    }
     
     
 }

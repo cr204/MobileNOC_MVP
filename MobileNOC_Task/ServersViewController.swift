@@ -25,6 +25,8 @@ class ServersViewController: UIViewController, ServerViewControllerDelegate {
     var servers: [ServerRepresentable] = [] {
         didSet {
             tableView.reloadData()
+            
+            print(servers.count)
         }
     }
     
@@ -37,18 +39,23 @@ class ServersViewController: UIViewController, ServerViewControllerDelegate {
         super.init(coder: coder)
     }
     
+    override var prefersStatusBarHidden: Bool {
+         return true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.view.backgroundColor = .orange
+        self.view.backgroundColor = .gray
         
         setupViews()
         presenter?.onViewDidLoad(view: self)
-        
     }
     
     private func setupViews() {
         
+        view.addSubview(tableView)
+        view.addConstraintsWithFormat(format: "H:|-50-[v0]|", views: tableView)
+        view.addConstraintsWithFormat(format: "V:|[v0]|", views: tableView)
     }
 
 
