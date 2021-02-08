@@ -18,6 +18,7 @@ class ServersViewController: UIViewController, ServerViewControllerDelegate {
     
     let tableView: UITableView = {
         let tv = UITableView()
+        tv.backgroundColor = Colors.bgTV
         tv.translatesAutoresizingMaskIntoConstraints = false
         return tv
     }()
@@ -47,6 +48,10 @@ class ServersViewController: UIViewController, ServerViewControllerDelegate {
         super.viewDidLoad()
         self.view.backgroundColor = .gray
         
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(ServerListCell.self, forCellReuseIdentifier: "ServerListCell")
+        
         setupViews()
         presenter?.onViewDidLoad(view: self)
     }
@@ -54,10 +59,31 @@ class ServersViewController: UIViewController, ServerViewControllerDelegate {
     private func setupViews() {
         
         view.addSubview(tableView)
-        view.addConstraintsWithFormat(format: "H:|-50-[v0]|", views: tableView)
+        view.addConstraintsWithFormat(format: "H:|-60-[v0]|", views: tableView)
         view.addConstraintsWithFormat(format: "V:|[v0]|", views: tableView)
     }
 
+}
 
+extension ServersViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return servers.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ServerListCell", for: indexPath) as! ServerListCell
+        cell.configure(withServer: servers[indexPath.row].server)
+        return cell
+    }
+    
+    
+}
+
+extension ServersViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 65.0
+    }
+    
 }
 

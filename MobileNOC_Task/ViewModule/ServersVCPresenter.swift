@@ -47,7 +47,7 @@ struct ServersVCPresenter: ServersVCPresenterType {
         
         sortedById.forEach { item in
             let newServer = Server(
-                image: "",
+                image: "img_server",
                 country: "Brasil",
                 name: item.name,
                 ipAddress: item.ipAddress,
