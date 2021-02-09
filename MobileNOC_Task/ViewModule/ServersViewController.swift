@@ -16,9 +16,18 @@ class ServersViewController: UIViewController, ServerViewControllerDelegate {
     
     private var presenter: ServersVCPresenterType?
     
+    let leftView: LeftView = {
+        let view = LeftView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     let tableView: UITableView = {
         let tv = UITableView()
+        tv.separatorStyle = .none
         tv.backgroundColor = Colors.bgTV
+        tv.contentInset = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
+        tv.scrollIndicatorInsets = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
         tv.translatesAutoresizingMaskIntoConstraints = false
         return tv
     }()
@@ -60,7 +69,13 @@ class ServersViewController: UIViewController, ServerViewControllerDelegate {
         
         view.addSubview(tableView)
         view.addConstraintsWithFormat(format: "H:|-60-[v0]|", views: tableView)
-        view.addConstraintsWithFormat(format: "V:|[v0]|", views: tableView)
+        view.addConstraintsWithFormat(format: "V:|-50-[v0]|", views: tableView)
+        
+        view.addSubview(leftView)
+        view.addConstraintsWithFormat(format: "V:|[v0]|", views: leftView)
+        leftView.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        NSLayoutConstraint(item: leftView, attribute: .left, relatedBy: .equal, toItem: view, attribute: .left, multiplier: 1, constant: 0).isActive = true
+        
     }
 
 }
@@ -84,6 +99,7 @@ extension ServersViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 65.0
     }
+    
     
 }
 

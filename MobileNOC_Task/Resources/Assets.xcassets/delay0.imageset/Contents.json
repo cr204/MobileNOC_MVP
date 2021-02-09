@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "delay0.png",
+      "filename" : "delay0@1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "delay0@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "delay0@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

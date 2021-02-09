@@ -26,12 +26,41 @@ struct ServersVCPresenter: ServersVCPresenterType {
     }
     
     private mutating func fetchServerData() {
-        guard let serverModels = getServerModels() else { return }
-        let representables = createRepresentables(from: serverModels)
-        view?.servers = representables
+        
+        // From local JSON
+//        guard let serverModels = getLocalModels() else { return }
+        
+        
+        // From server
+        getServerModels() { data in
+            if let serverModels = data {
+                let representables = createRepresentables(from: serverModels)
+                view?.servers = representables
+            }
+        }
     }
     
-    private func getServerModels() -> [ServerData]? {
+    private func getServerModels(completion: @escaping([ServerData]?)->()) {
+        dataService.getJSONData(link: Links.server) { (serverData) in
+            completion(serverData)
+        }
+    }
+    
+/*
+    private func getServerModels(completion: @escaping([ServerData]?)->()) {
+        var ret: [ServerData]?
+        
+        dataService.getJSONData(link: Links.server) { (serverData) in
+            if let data = serverData {
+                ret = serverData
+                print(ret)
+                //completion(data)
+            }
+        }
+        return ret
+    }
+    */
+    private func getLocalModels() -> [ServerData]? {
         guard let filePath = Bundle.main.path(forResource: "servers", ofType: "json")
             else { return nil }
         

@@ -8,10 +8,21 @@
 import Foundation
 
 protocol DataServiceType {
+    func getJSONData(link: String, completion: @escaping ([ServerData]?) -> Void)
     func getJSONData(filePath: String) -> [ServerData]?
 }
 
 struct DataService: DataServiceType {
+    
+    func getJSONData(link: String, completion: @escaping ([ServerData]?) -> Void) {
+        
+        NetworkService.getJSON(urlString: link) { (data: ServersResultData?) in
+            if let data = data {
+                completion(data.content)
+            }
+        }
+    }
+    
     
     func getJSONData(filePath: String) -> [ServerData]? {
         guard let contentData = FileManager.default.contents(atPath: filePath) else { return nil }
@@ -42,3 +53,4 @@ struct DataService: DataServiceType {
     }
     
 }
+
