@@ -7,9 +7,14 @@
 
 import UIKit
 
+protocol TopViewDelegate: class {
+    func onFilterList(type: FilterType)
+}
+
 class TopView: UIView {
     
     var shadowLayer:CAShapeLayer!
+    weak var delegate: TopViewDelegate?
     
     let textInput: UITextField = {
         let tf = UITextField()
@@ -184,12 +189,16 @@ class TopView: UIView {
         switch(sender.tag) {
         case 0:
             btnFilter1.selected = true
+            delegate?.onFilterList(type: .All)
         case 1:
             btnFilter2.selected = true
+            delegate?.onFilterList(type: .Active)
         case 2:
             btnFilter3.selected = true
+            delegate?.onFilterList(type: .Down)
         case 3:
             btnFilter4.selected = true
+            delegate?.onFilterList(type: .Location)
         default:
             return
         }

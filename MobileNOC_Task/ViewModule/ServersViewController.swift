@@ -36,8 +36,6 @@ class ServersViewController: UIViewController, ServerViewControllerDelegate {
         let tv = UITableView()
         tv.separatorStyle = .none
         tv.backgroundColor = Colors.bgTV
-        //tv.contentInset = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
-        //tv.scrollIndicatorInsets = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
         tv.translatesAutoresizingMaskIntoConstraints = false
         return tv
     }()
@@ -66,6 +64,8 @@ class ServersViewController: UIViewController, ServerViewControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .gray
+        
+        topView.delegate = self
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -139,5 +139,13 @@ extension ServersViewController: UITableViewDelegate {
         lastCellIndex = indexPath
         lastCell = cell
     }
+    
+}
+
+extension ServersViewController: TopViewDelegate {
+    func onFilterList(type: FilterType) {
+        presenter?.filter(by: type)
+    }
+    
     
 }

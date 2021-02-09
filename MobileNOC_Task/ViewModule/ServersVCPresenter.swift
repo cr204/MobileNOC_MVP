@@ -7,14 +7,20 @@
 
 import Foundation
 
+enum FilterType {
+    case All, Active, Down, Location
+}
+
 protocol ServersVCPresenterType {
     mutating func onViewDidLoad(view: ServerViewControllerDelegate)
+    mutating func filter(by filter: FilterType)
 }
 
 struct ServersVCPresenter: ServersVCPresenterType {
     
     private let dataService: DataServiceType
     private weak var view: ServerViewControllerDelegate?
+    private var serverData:[ServerRepresentable] = []
     
     init(dataService: DataServiceType) {
         self.dataService = dataService
@@ -35,6 +41,7 @@ struct ServersVCPresenter: ServersVCPresenterType {
         
         
         let representables = createRepresentables(from: serverModels)
+        serverData = representables
         view?.servers = representables
     }
     
@@ -77,5 +84,20 @@ struct ServersVCPresenter: ServersVCPresenterType {
         return servers
     }
     
+    public mutating func filter(by filter: FilterType) {
+        switch filter {
+        case .All:
+            view?.servers = serverData
+        case .Active:
+            let filtered = serverData.filter { $0.server.status == .ready }
+            view?.servers = filtered
+        case .Down:
+            let filtered = serverData.filter { $0.server.status == .overload }
+            view?.servers = filtered
+        case .Location:
+            let sorted = serverData.sorted { $0.server.country < $1.server.country }
+            view?.servers = sorted
+        }
+    }
     
 }
