@@ -29,8 +29,8 @@ class ServersViewController: UIViewController, ServerViewControllerDelegate {
         let tv = UITableView()
         tv.separatorStyle = .none
         tv.backgroundColor = Colors.bgTV
-        tv.contentInset = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
-        tv.scrollIndicatorInsets = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
+        //tv.contentInset = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
+        //tv.scrollIndicatorInsets = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
         tv.translatesAutoresizingMaskIntoConstraints = false
         return tv
     }()
@@ -84,6 +84,16 @@ class ServersViewController: UIViewController, ServerViewControllerDelegate {
 }
 
 extension ServersViewController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let vw = SectionHeaderView()
+        return vw
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return servers.count
     }
@@ -99,6 +109,10 @@ extension ServersViewController: UITableViewDataSource {
 }
 
 extension ServersViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50.0
+    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 65.0

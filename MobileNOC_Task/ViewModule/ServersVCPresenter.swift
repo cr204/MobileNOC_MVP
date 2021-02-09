@@ -72,7 +72,6 @@ struct ServersVCPresenter: ServersVCPresenterType {
                 status: Server.ServerStatus.init(rawValue: item.status.id) ?? .none)
             
             servers.append(ServerRepresentable(id: item.id, server: newServer))
-            servers.append(ServerRepresentable(id: item.id, server: newServer))
         }
         
         return servers

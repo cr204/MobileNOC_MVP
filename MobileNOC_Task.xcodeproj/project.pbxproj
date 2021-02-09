@@ -26,6 +26,7 @@
 		5A8D45F925D1B3B80023B8DE /* LeftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8D45F825D1B3B80023B8DE /* LeftView.swift */; };
 		5A8D45FE25D245800023B8DE /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8D45FD25D245800023B8DE /* NetworkService.swift */; };
 		5A8D460325D249E10023B8DE /* Links.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8D460225D249E10023B8DE /* Links.swift */; };
+		5A8D460B25D28D3B0023B8DE /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8D460A25D28D3B0023B8DE /* SectionHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		5A8D45F825D1B3B80023B8DE /* LeftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftView.swift; sourceTree = "<group>"; };
 		5A8D45FD25D245800023B8DE /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		5A8D460225D249E10023B8DE /* Links.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Links.swift; sourceTree = "<group>"; };
+		5A8D460A25D28D3B0023B8DE /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 				5A3A19F925CC70FD0080F9E4 /* ServersViewController.swift */,
 				5A4F2F0E25CF204900720A61 /* ServersVCPresenter.swift */,
 				5A276C6725CFB3CA00CE92C3 /* ServerListCell.swift */,
+				5A8D460A25D28D3B0023B8DE /* SectionHeaderView.swift */,
 				5A77CDCC25D17FE6004808FA /* MessageLabelView.swift */,
 				5A8D45F825D1B3B80023B8DE /* LeftView.swift */,
 			);
@@ -346,6 +349,7 @@
 				5A3A19F625CC70FD0080F9E4 /* AppDelegate.swift in Sources */,
 				5A276C5825CFA19000CE92C3 /* Extensions.swift in Sources */,
 				5A4F2F0025CF101700720A61 /* DataService.swift in Sources */,
+				5A8D460B25D28D3B0023B8DE /* SectionHeaderView.swift in Sources */,
 				5A4F2F0F25CF204900720A61 /* ServersVCPresenter.swift in Sources */,
 				5A276C6825CFB3CA00CE92C3 /* ServerListCell.swift in Sources */,
 				5A4F2EFA25CF0F9300720A61 /* MainCoordinator.swift in Sources */,

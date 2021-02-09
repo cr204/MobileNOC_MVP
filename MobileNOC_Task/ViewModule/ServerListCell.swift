@@ -122,28 +122,6 @@ class ServerListCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-//    override func layoutSubviews() {
-//        super.layoutSubviews()
-//
-//        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10))
-//
-//        if shadowLayer == nil {
-//            shadowLayer = CAShapeLayer()
-//
-//            shadowLayer.path = UIBezierPath(roundedRect: bounds, cornerRadius: 0).cgPath
-//            shadowLayer.fillColor = UIColor.white.cgColor
-//
-//            shadowLayer.shadowColor = UIColor.gray.cgColor
-//            shadowLayer.shadowPath = shadowLayer.path
-//            shadowLayer.shadowOffset = CGSize(width: 1.0, height: 1.0)
-//            shadowLayer.shadowOpacity = 0.5
-//            shadowLayer.shadowRadius = 3
-//
-//            self.layer.insertSublayer(shadowLayer, at: 0)
-//        }
-//    }
-    
-    
     
     func initViews() {
         
@@ -192,6 +170,10 @@ class ServerListCell: UITableViewCell {
         NSLayoutConstraint(item: imgMuted, attribute: .left, relatedBy: .equal, toItem: imgDelay, attribute: .right, multiplier: 1, constant: 5).isActive = true
         NSLayoutConstraint(item: imgMuted, attribute: .centerY, relatedBy: .equal, toItem: imgCheck, attribute: .centerY, multiplier: 1, constant: 0).isActive = true
         
+        self.contentView.addSubview(labelMsg)
+        NSLayoutConstraint(item: labelMsg, attribute: .centerY, relatedBy: .equal, toItem: self.contentView, attribute: .centerY, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: labelMsg, attribute: .right, relatedBy: .equal, toItem: self.contentView, attribute: .right, multiplier: 1, constant: -180).isActive = true
+        labelMsg.message = "CPU 100%"
         
         self.contentView.addSubview(separator)
         self.contentView.addConstraintsWithFormat(format: "V:|-6-[v0]-6-|", views: separator)
@@ -231,16 +213,6 @@ class ServerListCell: UITableViewCell {
         imgStatus.image = UIImage(named: imgName)
         
     }
-    
-
-//    override func setSelected(_ selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: animated)
-//
-//        // Configure the view for the selected state
-//        print("on selected")
-//        //whiteBackground.backgroundColor = Colors.bgSelectedCell
-//    }
-    
     
 
 }
