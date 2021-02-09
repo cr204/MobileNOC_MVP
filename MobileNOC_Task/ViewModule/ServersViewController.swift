@@ -16,6 +16,9 @@ class ServersViewController: UIViewController, ServerViewControllerDelegate {
     
     private var presenter: ServersVCPresenterType?
     
+    var lastCell: ServerListCell?
+    var lastCellIndex: IndexPath = IndexPath(item: 0, section: 10)
+    
     let leftView: LeftView = {
         let view = LeftView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -87,6 +90,7 @@ extension ServersViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ServerListCell", for: indexPath) as! ServerListCell
+        cell.whiteBackground.backgroundColor = indexPath == lastCellIndex ? Colors.bgSelectedCell : .white
         cell.configure(withServer: servers[indexPath.row].server)
         return cell
     }
@@ -100,6 +104,14 @@ extension ServersViewController: UITableViewDelegate {
         return 65.0
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        lastCell?.whiteBackground.backgroundColor = .white
+        
+        let cell = tableView.cellForRow(at: indexPath) as! ServerListCell
+        cell.whiteBackground.backgroundColor = Colors.bgSelectedCell
+        lastCellIndex = indexPath
+        lastCell = cell
+    }
     
 }
-

@@ -147,6 +147,7 @@ class ServerListCell: UITableViewCell {
     
     func initViews() {
         
+        self.selectionStyle = .none
         self.backgroundColor = Colors.bgTV
         self.contentView.backgroundColor = UIColor.clear
         
@@ -232,10 +233,14 @@ class ServerListCell: UITableViewCell {
     }
     
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+//    override func setSelected(_ selected: Bool, animated: Bool) {
+//        super.setSelected(selected, animated: animated)
+//
+//        // Configure the view for the selected state
+//        print("on selected")
+//        //whiteBackground.backgroundColor = Colors.bgSelectedCell
+//    }
+    
+    
 
 }

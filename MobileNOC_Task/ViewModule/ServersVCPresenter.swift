@@ -28,38 +28,21 @@ struct ServersVCPresenter: ServersVCPresenterType {
     private mutating func fetchServerData() {
         
         // From local JSON
-//        guard let serverModels = getLocalModels() else { return }
-        
+        guard let serverModels = getLocalModels() else { return }
         
         // From server
-        getServerModels() { data in
-            if let serverModels = data {
-                let representables = createRepresentables(from: serverModels)
-                view?.servers = representables
-            }
-        }
-    }
-    
-    private func getServerModels(completion: @escaping([ServerData]?)->()) {
-        dataService.getJSONData(link: Links.server) { (serverData) in
-            completion(serverData)
-        }
-    }
-    
-/*
-    private func getServerModels(completion: @escaping([ServerData]?)->()) {
-        var ret: [ServerData]?
+//        guard let serverModels = getServerModels() else { return }
         
-        dataService.getJSONData(link: Links.server) { (serverData) in
-            if let data = serverData {
-                ret = serverData
-                print(ret)
-                //completion(data)
-            }
-        }
-        return ret
+        
+        let representables = createRepresentables(from: serverModels)
+        view?.servers = representables
     }
-    */
+    
+//    private func getServerModels() -> [ServerData]? {
+//        return dataService.getJSONData(link: Links.server)
+//    }
+    
+
     private func getLocalModels() -> [ServerData]? {
         guard let filePath = Bundle.main.path(forResource: "servers", ofType: "json")
             else { return nil }
@@ -88,6 +71,7 @@ struct ServersVCPresenter: ServersVCPresenterType {
                 message: "CPU 100%",
                 status: Server.ServerStatus.init(rawValue: item.status.id) ?? .none)
             
+            servers.append(ServerRepresentable(id: item.id, server: newServer))
             servers.append(ServerRepresentable(id: item.id, server: newServer))
         }
         
