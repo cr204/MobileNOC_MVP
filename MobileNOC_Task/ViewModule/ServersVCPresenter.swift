@@ -13,11 +13,12 @@ enum FilterType {
 
 protocol ServersVCPresenterType {
     mutating func onViewDidLoad(view: ServerViewControllerDelegate)
-    mutating func filter(by filter: FilterType)
+    mutating func filter(byType filter: FilterType)
+    mutating func filter(byText filter: String)
 }
 
 struct ServersVCPresenter: ServersVCPresenterType {
-    
+        
     private let dataService: DataServiceType
     private weak var view: ServerViewControllerDelegate?
     private var serverData:[ServerRepresentable] = []
@@ -84,7 +85,7 @@ struct ServersVCPresenter: ServersVCPresenterType {
         return servers
     }
     
-    public mutating func filter(by filter: FilterType) {
+    public mutating func filter(byType filter: FilterType) {
         switch filter {
         case .All:
             view?.servers = serverData
@@ -99,5 +100,21 @@ struct ServersVCPresenter: ServersVCPresenterType {
             view?.servers = sorted
         }
     }
+    
+    public mutating func filter(byText filter: String) {
+        if filter == "" {
+            view?.servers = serverData
+            return
+        }
+            
+        let sorted = serverData.filter { containsWord(text: $0.server.country, searchWords: [filter]) }
+        view?.servers = sorted
+    }
+    
+    private func containsWord(text: String, searchWords: [String]) -> Bool {
+        return searchWords
+            .reduce(false) { $0 || text.contains($1) }
+    }
+
     
 }

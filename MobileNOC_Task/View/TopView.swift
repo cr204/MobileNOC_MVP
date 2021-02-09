@@ -9,6 +9,7 @@ import UIKit
 
 protocol TopViewDelegate: class {
     func onFilterList(type: FilterType)
+    func onFilterList(text: String)
 }
 
 class TopView: UIView {
@@ -16,13 +17,14 @@ class TopView: UIView {
     var shadowLayer:CAShapeLayer!
     weak var delegate: TopViewDelegate?
     
-    let textInput: UITextField = {
+    let textField: UITextField = {
         let tf = UITextField()
         tf.backgroundColor = Colors.bgTV
         tf.layer.borderColor = Colors.appGray.cgColor
         tf.layer.borderWidth = 2
         tf.layer.cornerRadius = 16
         tf.textColor = .gray
+        tf.clearButtonMode = .whileEditing
         tf.placeholder = "Search"
         tf.font = .systemFont(ofSize: 14)
         tf.setLeftPaddingPoints(18)
@@ -125,16 +127,17 @@ class TopView: UIView {
     
     func setupViews() {
         
-        self.addSubview(textInput)
-        textInput.heightAnchor.constraint(equalToConstant: 32).isActive = true
-        textInput.widthAnchor.constraint(equalToConstant: 225).isActive = true
-        textInput.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        textInput.leftAnchor.constraint(lessThanOrEqualTo: self.leftAnchor, constant: 20).isActive = true
+        self.addSubview(textField)
+        textField.heightAnchor.constraint(equalToConstant: 32).isActive = true
+        textField.widthAnchor.constraint(equalToConstant: 225).isActive = true
+        textField.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        textField.leftAnchor.constraint(lessThanOrEqualTo: self.leftAnchor, constant: 20).isActive = true
+        textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         
         self.addSubview(separator)
         self.addConstraintsWithFormat(format: "V:|-1-[v0]-1-|", views: separator)
         separator.widthAnchor.constraint(equalToConstant: 2).isActive = true
-        NSLayoutConstraint(item: separator, attribute: .left, relatedBy: .equal, toItem: textInput, attribute: .right, multiplier: 1, constant: 10).isActive = true
+        NSLayoutConstraint(item: separator, attribute: .left, relatedBy: .equal, toItem: textField, attribute: .right, multiplier: 1, constant: 10).isActive = true
         
         
         self.addSubview(labelFBy)
@@ -180,6 +183,14 @@ class TopView: UIView {
         
     }
     
+    
+    @objc func textFieldDidChange(tf: UITextField) {
+        if let text = tf.text {
+            delegate?.onFilterList(text: text)
+        }
+    }
+    
+    
     @objc func onFilterTapped(sender: UIButton) {
         btnFilter1.selected = false
         btnFilter2.selected = false
@@ -203,8 +214,4 @@ class TopView: UIView {
             return
         }
     }
-    
-    
-
-
 }

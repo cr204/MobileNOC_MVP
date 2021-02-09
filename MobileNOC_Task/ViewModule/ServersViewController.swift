@@ -143,8 +143,12 @@ extension ServersViewController: UITableViewDelegate {
 }
 
 extension ServersViewController: TopViewDelegate {
+    func onFilterList(text: String) {
+        presenter?.filter(byText: text)
+    }
+    
     func onFilterList(type: FilterType) {
-        presenter?.filter(by: type)
+        presenter?.filter(byType: type)
     }
     
     
