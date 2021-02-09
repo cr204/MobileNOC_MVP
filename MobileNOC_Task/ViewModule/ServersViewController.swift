@@ -25,6 +25,13 @@ class ServersViewController: UIViewController, ServerViewControllerDelegate {
         return view
     }()
     
+    let topView: TopView = {
+        let view = TopView()
+        
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     let tableView: UITableView = {
         let tv = UITableView()
         tv.separatorStyle = .none
@@ -73,6 +80,11 @@ class ServersViewController: UIViewController, ServerViewControllerDelegate {
         view.addSubview(tableView)
         view.addConstraintsWithFormat(format: "H:|-60-[v0]|", views: tableView)
         view.addConstraintsWithFormat(format: "V:|-50-[v0]|", views: tableView)
+        
+        view.addSubview(topView)
+        view.addConstraintsWithFormat(format: "H:|-60-[v0]|", views: topView)
+        topView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        topView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         
         view.addSubview(leftView)
         view.addConstraintsWithFormat(format: "V:|[v0]|", views: leftView)

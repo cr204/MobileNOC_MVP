@@ -197,6 +197,8 @@ class ServerListCell: UITableViewCell {
         imgPhone.image = UIImage(named: "phone\(server.phone ? "1" : "0")")
         imgDelay.image = UIImage(named: "delay\(server.delay ? "1" : "0")")
         imgMuted.image = UIImage(named: "muted\(server.muted ? "1" : "0")")
+        labelMsg.isHidden = server.message == "" ? true : false
+        labelMsg.message = server.message
         let imgName:String
         switch server.status {
         case .none:

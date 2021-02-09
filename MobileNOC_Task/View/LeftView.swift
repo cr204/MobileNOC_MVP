@@ -50,7 +50,7 @@ class LeftView: UIView {
             
             shadowLayer.shadowColor = UIColor.gray.cgColor
             shadowLayer.shadowPath = shadowLayer.path
-            shadowLayer.shadowOffset = CGSize(width: 3.0, height: 3.0)
+            shadowLayer.shadowOffset = CGSize(width: 3.0, height: 1.0)
             shadowLayer.shadowOpacity = 0.7
             shadowLayer.shadowRadius = 3
             

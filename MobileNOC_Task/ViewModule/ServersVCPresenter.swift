@@ -60,7 +60,7 @@ struct ServersVCPresenter: ServersVCPresenterType {
         sortedById.forEach { item in
             let newServer = Server(
                 image: "img_server",
-                country: "Brasil",
+                country: Bool.random() ? "Brasil" : "Argentina",
                 name: item.name,
                 ipAddress: item.ipAddress,
                 ipSubnetMask: item.ipSubnetMask ?? "missing",
@@ -68,7 +68,7 @@ struct ServersVCPresenter: ServersVCPresenterType {
                 phone: Bool.random(),
                 delay: Bool.random(),
                 muted: Bool.random(),
-                message: "CPU 100%",
+                message: Bool.random() ? "CPU 100%" : "",
                 status: Server.ServerStatus.init(rawValue: item.status.id) ?? .none)
             
             servers.append(ServerRepresentable(id: item.id, server: newServer))

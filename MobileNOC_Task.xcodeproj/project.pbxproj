@@ -27,6 +27,8 @@
 		5A8D45FE25D245800023B8DE /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8D45FD25D245800023B8DE /* NetworkService.swift */; };
 		5A8D460325D249E10023B8DE /* Links.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8D460225D249E10023B8DE /* Links.swift */; };
 		5A8D460B25D28D3B0023B8DE /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8D460A25D28D3B0023B8DE /* SectionHeaderView.swift */; };
+		5A8D461425D29EFE0023B8DE /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8D461325D29EFE0023B8DE /* TopView.swift */; };
+		5A8D461925D2B4140023B8DE /* FilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8D461825D2B4140023B8DE /* FilterButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,8 @@
 		5A8D45FD25D245800023B8DE /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		5A8D460225D249E10023B8DE /* Links.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Links.swift; sourceTree = "<group>"; };
 		5A8D460A25D28D3B0023B8DE /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
+		5A8D461325D29EFE0023B8DE /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
+		5A8D461825D2B4140023B8DE /* FilterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,7 +122,6 @@
 				5A276C6725CFB3CA00CE92C3 /* ServerListCell.swift */,
 				5A8D460A25D28D3B0023B8DE /* SectionHeaderView.swift */,
 				5A77CDCC25D17FE6004808FA /* MessageLabelView.swift */,
-				5A8D45F825D1B3B80023B8DE /* LeftView.swift */,
 			);
 			path = ViewModule;
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 			children = (
 				5A3A19F525CC70FD0080F9E4 /* AppDelegate.swift */,
 				5A3A19F725CC70FD0080F9E4 /* SceneDelegate.swift */,
+				5A8D460F25D29EE20023B8DE /* View */,
 				5A276C6325CFB37600CE92C3 /* ViewModule */,
 				5A4F2F0A25CF201B00720A61 /* Services */,
 				5A4F2EEB25CF098400720A61 /* Model */,
@@ -210,6 +214,16 @@
 				5A8D45FD25D245800023B8DE /* NetworkService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		5A8D460F25D29EE20023B8DE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5A8D45F825D1B3B80023B8DE /* LeftView.swift */,
+				5A8D461325D29EFE0023B8DE /* TopView.swift */,
+				5A8D461825D2B4140023B8DE /* FilterButton.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -348,7 +362,9 @@
 				5A3A19FA25CC70FD0080F9E4 /* ServersViewController.swift in Sources */,
 				5A3A19F625CC70FD0080F9E4 /* AppDelegate.swift in Sources */,
 				5A276C5825CFA19000CE92C3 /* Extensions.swift in Sources */,
+				5A8D461425D29EFE0023B8DE /* TopView.swift in Sources */,
 				5A4F2F0025CF101700720A61 /* DataService.swift in Sources */,
+				5A8D461925D2B4140023B8DE /* FilterButton.swift in Sources */,
 				5A8D460B25D28D3B0023B8DE /* SectionHeaderView.swift in Sources */,
 				5A4F2F0F25CF204900720A61 /* ServersVCPresenter.swift in Sources */,
 				5A276C6825CFB3CA00CE92C3 /* ServerListCell.swift in Sources */,
