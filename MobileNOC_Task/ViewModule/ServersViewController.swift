@@ -15,7 +15,8 @@ protocol ServerViewControllerDelegate: class {
 class ServersViewController: UIViewController, ServerViewControllerDelegate {
     
     private var presenter: ServersVCPresenterType?
-    
+    private var headerTitle = "All Servers"
+        
     var lastCell: ServerListCell?
     var lastCellIndex: IndexPath = IndexPath(item: 0, section: 10)
     
@@ -43,8 +44,6 @@ class ServersViewController: UIViewController, ServerViewControllerDelegate {
     var servers: [ServerRepresentable] = [] {
         didSet {
             tableView.reloadData()
-            
-            print(servers.count)
         }
     }
     
@@ -103,6 +102,7 @@ extension ServersViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let vw = SectionHeaderView()
+        vw.title.text = headerTitle
         return vw
     }
     
@@ -148,6 +148,7 @@ extension ServersViewController: TopViewDelegate {
     }
     
     func onFilterList(type: FilterType) {
+        headerTitle = type.rawValue
         presenter?.filter(byType: type)
     }
     

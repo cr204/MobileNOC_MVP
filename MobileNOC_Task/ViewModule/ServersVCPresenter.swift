@@ -7,8 +7,11 @@
 
 import Foundation
 
-enum FilterType {
-    case All, Active, Down, Location
+enum FilterType: String, CodingKey {
+    case All = "All Servers"
+    case Active = "Active Servers"
+    case Down = "Down Servers"
+    case Location = "By Location"
 }
 
 protocol ServersVCPresenterType {
