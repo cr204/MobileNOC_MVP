@@ -70,6 +70,8 @@ class ServersViewController: UIViewController, ServerViewControllerDelegate {
         tableView.delegate = self
         tableView.register(ServerListCell.self, forCellReuseIdentifier: "ServerListCell")
         
+        DebugPrint.location("Setup Views")
+        
         setupViews()
         presenter?.onViewDidLoad(view: self)
     }

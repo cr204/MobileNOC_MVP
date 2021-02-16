@@ -1,0 +1,158 @@
+[
+    {
+      "id": 3,
+      "name": "NJSBCRSW1.mobilenoc.local",
+      "ipAddress": "4.71.144.98",
+      "ipSubnetMask": "255.255.255.0",
+      "model": {
+        "id": 4,
+        "name": "cat6",
+        "creationDate": null,
+        "expiryDate": null
+      },
+      "locationId": 1,
+      "status": {
+        "id": 2,
+        "statusValue": "INSTANCE_STATE_CHECKING",
+        "legacyValue": "INSTANCE_STATE_INSTANCE_STATE_CHECKING"
+      },
+      "type": {
+        "id": 2,
+        "name": "SWITCH"
+      },
+      "serialNumber": "FOX1227GBPK",
+      "version": "12.2(33)SXI4a",
+      "communicationProtocols": [
+        {
+          "id": 1,
+          "name": "TELNET",
+          "defaultPort": 23
+        },
+        {
+          "id": 2,
+          "name": "SSH",
+          "defaultPort": 22
+        }
+      ],
+      "targetMachines": [],
+      "location": 1,
+      "serialNum": "FOX1227GBPK"
+    },
+    {
+      "id": 7,
+      "name": "F5-2",
+      "ipAddress": "4.30.132.83",
+      "ipSubnetMask": "255.255.255.0",
+      "model": {
+        "id": 2,
+        "name": "n7k",
+        "creationDate": null,
+        "expiryDate": null
+      },
+      "locationId": 1,
+      "status": {
+        "id": 1,
+        "statusValue": "INSTANCE_STATE_UNCHECKED",
+        "legacyValue": "INSTANCE_STATE_INSTANCE_STATE_UNCHECKED"
+      },
+      "type": {
+        "id": 4,
+        "name": "LOAD_BALANCER"
+      },
+      "serialNumber": null,
+      "version": null,
+      "communicationProtocols": [
+        {
+          "id": 1,
+          "name": "TELNET",
+          "defaultPort": 23
+        },
+        {
+          "id": 2,
+          "name": "SSH",
+          "defaultPort": 22
+        }
+      ],
+      "targetMachines": [],
+      "location": 1,
+      "serialNum": null
+    },
+    {
+      "id": 8,
+      "name": "Cloud",
+      "ipAddress": "166.151.129.129",
+      "ipSubnetMask": "255.255.255.0",
+      "model": {
+        "id": 2,
+        "name": "n7k",
+        "creationDate": null,
+        "expiryDate": null
+      },
+      "locationId": 4,
+      "status": {
+        "id": 3,
+        "statusValue": "INSTANCE_STATE_UP",
+        "legacyValue": "INSTANCE_STATE_INSTANCE_STATE_UP"
+      },
+      "type": {
+        "id": 8,
+        "name": "CLOUD"
+      },
+      "serialNumber": null,
+      "version": null,
+      "communicationProtocols": [
+        {
+          "id": 1,
+          "name": "TELNET",
+          "defaultPort": 23
+        },
+        {
+          "id": 2,
+          "name": "SSH",
+          "defaultPort": 22
+        }
+      ],
+      "targetMachines": [],
+      "location": 4,
+      "serialNum": null
+    },
+    {
+      "id": 9,
+      "name": "mobilenoc-fw/sec",
+      "ipAddress": "4.71.144.117",
+      "ipSubnetMask": "255.255.255.0",
+      "model": {
+        "id": 7,
+        "name": "asa",
+        "creationDate": null,
+        "expiryDate": null
+      },
+      "locationId": 1,
+      "status": {
+        "id": 1,
+        "statusValue": "INSTANCE_STATE_UNCHECKED",
+        "legacyValue": "INSTANCE_STATE_INSTANCE_STATE_UNCHECKED"
+      },
+      "type": {
+        "id": 3,
+        "name": "FIREWALL"
+      },
+      "serialNumber": null,
+      "version": null,
+      "communicationProtocols": [
+        {
+          "id": 1,
+          "name": "TELNET",
+          "defaultPort": 23
+        },
+        {
+          "id": 2,
+          "name": "SSH",
+          "defaultPort": 22
+        }
+      ],
+      "targetMachines": [],
+      "location": 1,
+      "serialNum": null
+    }
+]

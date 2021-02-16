@@ -29,6 +29,10 @@
 		5A8D460B25D28D3B0023B8DE /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8D460A25D28D3B0023B8DE /* SectionHeaderView.swift */; };
 		5A8D461425D29EFE0023B8DE /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8D461325D29EFE0023B8DE /* TopView.swift */; };
 		5A8D461925D2B4140023B8DE /* FilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8D461825D2B4140023B8DE /* FilterButton.swift */; };
+		5AA251C825D4EF9F00C01706 /* DebugPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA251C725D4EF9F00C01706 /* DebugPrint.swift */; };
+		5AA68CA725D2F28400FE60B9 /* ModelStructure_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA68CA625D2F28400FE60B9 /* ModelStructure_Tests.swift */; };
+		5AA68CBA25D2FE5300FE60B9 /* DataService_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA68CB925D2FE5300FE60B9 /* DataService_Tests.swift */; };
+		5AA68CBF25D2FF6600FE60B9 /* mock_test.json in Resources */ = {isa = PBXBuildFile; fileRef = 5AA68CBE25D2FF6600FE60B9 /* mock_test.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +81,10 @@
 		5A8D460A25D28D3B0023B8DE /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		5A8D461325D29EFE0023B8DE /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 		5A8D461825D2B4140023B8DE /* FilterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButton.swift; sourceTree = "<group>"; };
+		5AA251C725D4EF9F00C01706 /* DebugPrint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugPrint.swift; sourceTree = "<group>"; };
+		5AA68CA625D2F28400FE60B9 /* ModelStructure_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelStructure_Tests.swift; sourceTree = "<group>"; };
+		5AA68CB925D2FE5300FE60B9 /* DataService_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService_Tests.swift; sourceTree = "<group>"; };
+		5AA68CBE25D2FF6600FE60B9 /* mock_test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mock_test.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +118,7 @@
 				5A276C5725CFA19000CE92C3 /* Extensions.swift */,
 				5A276C6C25CFC8FB00CE92C3 /* Colors.swift */,
 				5A8D460225D249E10023B8DE /* Links.swift */,
+				5AA251C725D4EF9F00C01706 /* DebugPrint.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -168,6 +177,8 @@
 			isa = PBXGroup;
 			children = (
 				5A3A1A0C25CC70FE0080F9E4 /* MobileNOC_TaskTests.swift */,
+				5AA68CA625D2F28400FE60B9 /* ModelStructure_Tests.swift */,
+				5AA68CB925D2FE5300FE60B9 /* DataService_Tests.swift */,
 				5A3A1A0E25CC70FE0080F9E4 /* Info.plist */,
 			);
 			path = MobileNOC_TaskTests;
@@ -187,6 +198,7 @@
 			children = (
 				5A3A19FE25CC70FE0080F9E4 /* Assets.xcassets */,
 				5A4F2EDD25CEF71400720A61 /* servers.json */,
+				5AA68CBE25D2FF6600FE60B9 /* mock_test.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -332,6 +344,7 @@
 				5A3A1A0225CC70FE0080F9E4 /* LaunchScreen.storyboard in Resources */,
 				5A3A19FF25CC70FE0080F9E4 /* Assets.xcassets in Resources */,
 				5A4F2EDE25CEF71400720A61 /* servers.json in Resources */,
+				5AA68CBF25D2FF6600FE60B9 /* mock_test.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,6 +386,7 @@
 				5A8D460325D249E10023B8DE /* Links.swift in Sources */,
 				5A8D45FE25D245800023B8DE /* NetworkService.swift in Sources */,
 				5A8D45F925D1B3B80023B8DE /* LeftView.swift in Sources */,
+				5AA251C825D4EF9F00C01706 /* DebugPrint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,6 +395,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A3A1A0D25CC70FE0080F9E4 /* MobileNOC_TaskTests.swift in Sources */,
+				5AA68CA725D2F28400FE60B9 /* ModelStructure_Tests.swift in Sources */,
+				5AA68CBA25D2FE5300FE60B9 /* DataService_Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
