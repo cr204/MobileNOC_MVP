@@ -8,20 +8,20 @@
 import UIKit
 
 struct MainCoordinator {
-  
+    
     private let dataService: DataServiceType = DataService()
-  
-  func start(window: UIWindow?) {
     
-    let presenter = ServersVCPresenter(dataService: dataService)
-    let vc = ServersViewController(presenter: presenter)
+    func start(window: UIWindow?) {
+        
+        let presenter = ServersVCPresenter(dataService: dataService)
+        let vc = ServersViewController(presenter: presenter)
+        
+        let navigationController = UINavigationController()
+        navigationController.setViewControllers([vc], animated: true)
+        navigationController.setNavigationBarHidden(true, animated: false)
+        
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
+    }
     
-    let navigationController = UINavigationController()
-    navigationController.setViewControllers([vc], animated: true)
-    navigationController.setNavigationBarHidden(true, animated: false)
-    
-    window?.rootViewController = navigationController
-    window?.makeKeyAndVisible()
-  }
-  
 }
